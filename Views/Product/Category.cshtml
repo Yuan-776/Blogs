@@ -1,9 +1,15 @@
-@model IEnumerable<Category>
+@model IEnumerable<Blogs.Models.Category>
 
-<h1>Categories</h1>
-<ul>
-@foreach(var category in Model)
-{
-    <li>@category.CategoryName</li>
-}
-</ul>
+<div class="container mt-3">
+    <h2>Categories</h2>
+    <ul class="list-group">
+        @foreach (var category in Model)
+        {
+            <li class="list-group-item">
+                <a href="@Url.Action("Index", "Product", new { id = category.CategoryId })">
+                    @category.CategoryName
+                </a>
+            </li>
+        }
+    </ul>
+</div>
